@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css"
+    />
+
+    <script type="text/javascript">
+      window.onload = function() {
+        // L.mapquest.key = "lYrP4vF3Uk5zgTiGGuEzQGwGIVDGuy24";
+        L.mapquest.key = "011BsCFxcsDbUjbhoiRQXhAwtvGApGLZ";
+
+        var map = L.mapquest.map("map", {
+          center: [13.0827, 80.2707],
+          layers: L.mapquest.tileLayer("map"),
+          zoom: 12
+        });
+
+        map.addControl(L.mapquest.control());
+
+        var directions = L.mapquest.directions();
+        directions.route({
+          start: [13.0827, 80.2707],
+          end: [12.9249, 80.1],
+          waypoints: [
+            [13.0051, 80.1933],
+            [13.0418, 80.2341]
+          ]
+        });
+      };
+    </script>
+  </head>
+
+  <body style="border: 0; margin: 0;">
+    <h1>Map quest</h1>
+    <p>Hello guys let us find the criminals....</p>
+    <div id="map" style="width: 100%; height: 530px;"></div>
+  </body>
+</html>
